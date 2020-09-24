@@ -72,4 +72,8 @@ public class UserService {
 
         return updatedUserDto;
     }
+
+    public User createUser(User user) {
+        return userRepository.save(user);
+    }
 }
