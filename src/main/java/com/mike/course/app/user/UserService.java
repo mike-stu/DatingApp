@@ -32,10 +32,15 @@ public class UserService {
 
         // todo Need to use mapping method to transfer between UserDto and User
         User user = new User();
-        user.setId(userDto.getId());
         user.setName(userDto.getName());
         user.setSurname(userDto.getSurname());
+        user.setPassword("pw");
         user.setEmail(userDto.getEmail());
+        user.setCountry(userDto.getCountry());
+        user.setState(userDto.getState());
+        user.setCity(userDto.getCity());
+        user.setGender(userDto.getGender());
+        user.setDateOfBirth(userDto.getDateOfBirth());
 
         User updatedUser = userRepository.save(user);
 
@@ -44,6 +49,11 @@ public class UserService {
         updatedUserDto.setName(updatedUser.getName());
         updatedUserDto.setSurname(updatedUser.getSurname());
         updatedUserDto.setEmail(updatedUser.getEmail());
+        updatedUserDto.setCountry(updatedUser.getCountry());
+        updatedUserDto.setState(updatedUser.getState());
+        updatedUserDto.setCity(updatedUser.getCity());
+        updatedUserDto.setGender(updatedUser.getGender());
+        updatedUserDto.setDateOfBirth(updatedUser.getDateOfBirth());
 
         return updatedUserDto;
     }
