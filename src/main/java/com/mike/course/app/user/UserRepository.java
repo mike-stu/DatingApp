@@ -6,4 +6,5 @@ public interface UserRepository extends CrudRepository<User, Long> {
 
     User getUserByEmail(String email);
 
+    User getUserById(Long id);
 }
