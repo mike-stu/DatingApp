@@ -26,6 +26,24 @@ public class UserService {
         return userDto;
     }
 
+    public UserDto getUserById(Long id) {
+        User user = userRepository.findUserById(id);
+
+        // todo Need to use mapping method to transfer between UserDto and User
+        UserDto userDto = new UserDto();
+        userDto.setId(user.getId());
+        userDto.setName(user.getName());
+        userDto.setSurname(user.getSurname());
+        userDto.setEmail(user.getEmail());
+        userDto.setCountry(user.getAddress().getCountry());
+        userDto.setState(user.getAddress().getState());
+        userDto.setCity(user.getAddress().getCity());
+        userDto.setGender(user.getGender());
+        userDto.setDateOfBirth(user.getDateOfBirth());
+
+        return userDto;
+    }
+
     public UserDto updateUser(UserDto userDto) {
         // todo Need to validate UserDto before object transfer
 
