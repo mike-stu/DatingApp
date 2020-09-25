@@ -1,6 +1,8 @@
 package com.mike.course.app.user;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,7 +17,9 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @ToString
+@Builder
 public class UserDto {
 
     private Long id;
@@ -29,6 +33,9 @@ public class UserDto {
     @Email
     @NotBlank(message = "Email is required")
     private String email;
+
+    @NotBlank(message = "Password is required")
+    private String password;
 
     @NotBlank(message = "Country is required")
     private String country;
