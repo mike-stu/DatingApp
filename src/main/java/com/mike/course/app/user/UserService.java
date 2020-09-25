@@ -36,9 +36,7 @@ public class UserService {
         user.setName(userDto.getName());
         user.setSurname(userDto.getSurname());
         user.setEmail(userDto.getEmail());
-        user.setCountry(userDto.getCountry());
-        user.setState(userDto.getState());
-        user.setCity(userDto.getCity());
+        user.setAddress(new Address(userDto.getCountry(), userDto.getState(), userDto.getCity()));
         user.setGender(userDto.getGender());
         user.setDateOfBirth(userDto.getDateOfBirth());
 
@@ -49,9 +47,9 @@ public class UserService {
         updatedUserDto.setName(updatedUser.getName());
         updatedUserDto.setSurname(updatedUser.getSurname());
         updatedUserDto.setEmail(updatedUser.getEmail());
-        updatedUserDto.setCountry(updatedUser.getCountry());
-        updatedUserDto.setState(updatedUser.getState());
-        updatedUserDto.setCity(updatedUser.getCity());
+        updatedUserDto.setCountry(updatedUser.getAddress().getCountry());
+        updatedUserDto.setState(updatedUser.getAddress().getState());
+        updatedUserDto.setCity(updatedUser.getAddress().getCity());
         updatedUserDto.setGender(updatedUser.getGender());
         updatedUserDto.setDateOfBirth(updatedUser.getDateOfBirth());
 

@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -42,17 +43,8 @@ public class User {
     @NotBlank(message = "Password is required")
     private String password;
 
-    @Column
-    @NotBlank(message = "Country is required")
-    private String country;
-
-    @Column
-    @NotBlank(message = "State is required")
-    private String state;
-
-    @Column
-    @NotBlank(message = "City is required")
-    private String city;
+    @Embedded
+    private Address address;
 
     @Column
     @NotBlank(message = "Gender is required")
