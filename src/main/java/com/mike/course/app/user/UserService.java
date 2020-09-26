@@ -32,7 +32,11 @@ public class UserService {
                 .orElse(null);
     }
 
-    public User createUser(User user) {
-        return userRepository.save(user);
+    public UserDto createUser(UserDto userDto) {
+        return Optional.ofNullable(userDto)
+                .map(UserMapper::from)
+                .map(user -> userRepository.save(user))
+                .map(UserMapper::from)
+                .orElse(null);
     }
 }
