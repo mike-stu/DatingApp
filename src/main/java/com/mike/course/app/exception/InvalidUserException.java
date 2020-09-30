@@ -6,13 +6,9 @@ import org.springframework.http.HttpStatus;
 
 @Getter
 @ToString
-public class InvalidUserException extends Exception {
-    private HttpStatus errorCode;
-    private String errorMessage;
+public class InvalidUserException extends InvalidBaseException {
 
     public InvalidUserException(HttpStatus errorCode, String errorMessage) {
-        super();
-        this.errorCode = errorCode;
-        this.errorMessage = errorMessage;
+        super(errorCode, errorMessage);
     }
 }
