@@ -4,6 +4,9 @@ import com.mike.course.app.user.Address;
 import com.mike.course.app.user.User;
 import com.mike.course.app.user.UserDto;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class UserMapper {
 
     public static User from(UserDto userDto) {
@@ -35,5 +38,11 @@ public class UserMapper {
                 .gender(user.getGender())
                 .dateOfBirth(user.getDateOfBirth())
                 .build();
+    }
+
+    public static List<UserDto> from(List<User> user) {
+        return user.stream()
+                .map(UserMapper::from)
+                .collect(Collectors.toList());
     }
 }
