@@ -1,5 +1,6 @@
 package com.mike.course.app.register;
 
+import com.mike.course.app.exception.InvalidUserException;
 import com.mike.course.app.user.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -21,7 +22,7 @@ public class RegisterController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public UserDto registerUser(@RequestBody @Valid UserDto userDto) {
+    public UserDto registerUser(@RequestBody @Valid UserDto userDto) throws InvalidUserException {
         return registerService.registerUser(userDto);
     }
 

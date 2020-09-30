@@ -1,5 +1,6 @@
 package com.mike.course.app.hobby;
 
+import com.mike.course.app.exception.InvalidHobbyException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,7 +22,7 @@ public class HobbyController {
     HobbyService hobbyService;
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void addHobby(@RequestBody @Valid HobbyDto hobbyDto) {
+    public void addHobby(@RequestBody @Valid HobbyDto hobbyDto) throws InvalidHobbyException {
         hobbyService.addHobby(hobbyDto);
     }
 
