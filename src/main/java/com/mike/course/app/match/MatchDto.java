@@ -7,31 +7,17 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
 @Getter
 @Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@Entity
-public class Match {
+public class MatchDto {
 
-    @Id
-    @GeneratedValue
-    private Long id;
-
-    @Column
     private Long fromUserId;
 
-    @Column
     private Long toUserId;
 
-    @Column
     private Long likeRate;
-
 }
